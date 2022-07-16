@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2422a92d-7dc8-47aa-bd5d-52345c307d90}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1b4c1c80-6b77-406d-afb9-d9873f2b176c}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{b8b5265c-ae3e-4477-a6fa-9b552949af8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Operator/Expressions">
+      <UniqueIdentifier>{adf3fc09-7fa4-4cdf-8948-9baed46aba42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\tests\common\main.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\core\operator.cpp">
+      <Filter>Source Files\Operator/Expressions</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
