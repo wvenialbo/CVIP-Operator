@@ -33,7 +33,7 @@ use.[^Remark]
 
 The small and light weight, almost header-only, library, add interfaces to
 provide generic operator semantics, that is, given a user defined matrix/image
-operation predicate, and a matrix, x, compatible with that operation, being
+operation predicate, and a matrix, `x`, compatible with that operation, being
 `P` an operator that encapsulates or implement the predicate, you can write
 your code like:
 
@@ -86,7 +86,7 @@ member as the entry point to your algorithm.
   to extend the operator functionality.
 
 In the operator predicate you just created, you may encapsulate any existing
-OpenCV method, or implement your operation algorithm.
+OpenCV method, or implement your own operation algorithm.
 
 To illustrate this, let's define an image color/intensity inverter operator.
 
@@ -168,9 +168,9 @@ buffer if it has the appropriate size.
 
 ### Observation
 
-You my find that I aliased the OpenCV matrix class `cv::Mat` as `cvip::matrix`
+You may find that I aliased the OpenCV matrix class `cv::Mat` as `cvip::matrix`
 in `config/basic_types.hpp` and imported `cv::swap` into the `::cvip` namespace
-in `config/basic_types.hpp`. That's because I use to map this toolset to other
+in `config/basic_imports.hpp`. That's because I use to map this toolset to other
 matrix libraries. That is, the source code in this library is OpenCV agnostic,
 you can map to any other matrix library just replacing the above aliases. Even
 more, you can replace the matrix type alias with any other type for which you
