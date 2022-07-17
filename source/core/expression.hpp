@@ -146,18 +146,6 @@ namespace cvip
     namespace core
     {
 
-        //class operator_expression;
-
-        //operator_expression operator*(i_operator const& lhs_op, i_operator const& rhs_op);
-
-        //operator_expression operator*(operator_expression&& lhs_ex, i_operator const& rhs_op);
-
-        //operator_expression operator*(i_operator const& lhs_op, operator_expression&& rhs_ex);
-
-        //operator_expression operator*(operator_expression&& lhs_ex, operator_expression&& rhs_ex);
-
-        //matrix operator*(operator_expression& lhs_ex, matrix const& rhs_im);
-
         // Operator expression
         //
         // Allows operator semantics for  image matrix  operations.  Operations
