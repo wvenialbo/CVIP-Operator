@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/core/operator.hpp>
+#include "../operator.hpp"
 #include <memory>
 #include <utility>
 

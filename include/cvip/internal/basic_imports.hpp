@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/config/config.hpp>
+#include "../config/config.hpp"
 #include <opencv2/core.hpp>
 
 #if not defined(CVIP_CONFIG_LOADED)

@@ -26,8 +26,8 @@
 // This library build's version info
 // (Not the ideal to be here though...)
 //
-static auto constexpr cvip_ver_number =  20220713L;
-static auto constexpr cvip_ver_string = "20220713";
+static auto constexpr cvip_ver_number =  20220718L;
+static auto constexpr cvip_ver_string = "20220718";
 static auto constexpr __cvip          = cvip_ver_number;
 static auto constexpr __cvip_s        = cvip_ver_string;
 

@@ -363,4 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Project setup files
-slice_repo.*
+slice.bat
+slice.sh
+slicelist.txt

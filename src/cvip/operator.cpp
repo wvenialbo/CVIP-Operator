@@ -10,7 +10,7 @@
 // See LICENSE file in the project root for full license information.
 //
 
-#include <cvip/core/i_operator.hpp>
+#include <cvip/i_operator.hpp>
 
 
 namespace cvip

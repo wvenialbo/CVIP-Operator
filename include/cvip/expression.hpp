@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/core/i_operator.hpp>
+#include "i_operator.hpp"
 #include <list>
 #include <memory>
 
@@ -222,7 +222,7 @@ namespace cvip
 }
 
 
-#include "expression.inl"
+#include "internal/expression.inl"
 
 
 #endif // !CVIP_CORE_EXPRESSION_HPP

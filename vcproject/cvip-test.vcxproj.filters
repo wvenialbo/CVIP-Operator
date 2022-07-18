@@ -17,10 +17,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\tests\common\main.cpp">
+    <ClCompile Include="..\tests\cvip\main.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\tests\core\operator.cpp">
+    <ClCompile Include="..\tests\cvip\operator.cpp">
       <Filter>Source Files\Operator/Expressions</Filter>
     </ClCompile>
   </ItemGroup>

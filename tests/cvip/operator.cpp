@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
-#include <cvip/config/basic_imports.hpp>
-#include <cvip/core/expression.hpp>
-#include <cvip/core/operator.hpp>
+#include <cvip/internal/basic_imports.hpp>
+#include <cvip/expression.hpp>
+#include <cvip/operator.hpp>
 
 
 using cvip::matrix;

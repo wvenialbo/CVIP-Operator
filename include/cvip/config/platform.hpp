@@ -22,6 +22,7 @@
 #   define CVIP_TARGET_POSIX_BUILD 1
 #elif defined(_WIN32) or defined(_WIN64)
 #   define CVIP_TARGET_WINDOWS_BUILD
+#   define WIN32_LEAN_AND_MEAN
 #   define NOMINMAX
 #   define _USE_MATH_DEFINES
 #else

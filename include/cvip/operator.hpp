@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/core/i_operator.hpp>
+#include "i_operator.hpp"
 
 #if not defined(CVIP_CONFIG_LOADED)
 #error ERROR: Missing config.hpp
@@ -99,7 +99,7 @@ namespace cvip
 }
 
 
-#include "operator.inl"
+#include "internal/operator.inl"
 
 
 #endif // !CVIP_CORE_OPERATOR_HPP

@@ -10,8 +10,8 @@
 // See LICENSE file in the project root for full license information.
 //
 
-#include <cvip/core/expression.hpp>
-#include <cvip/config/basic_imports.hpp>
+#include <cvip/expression.hpp>
+#include <cvip/internal/basic_imports.hpp>
 #include <initializer_list>
 #include <cassert>
 

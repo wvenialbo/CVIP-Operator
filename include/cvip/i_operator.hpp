@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/config/basic_types.hpp>
+#include "internal/basic_types.hpp"
 #include <memory>
 #include <type_traits>
 
@@ -111,21 +111,17 @@ namespace cvip
             struct has_member { char z[1]; };
             struct no_member  { char z[2]; };
 
-            //template<typename T> static has_member has_supported_member(decltype(&T::supported));
             template<typename T> static has_member has_do_apply_member(decltype(&T::do_apply));
 
-            //template<typename T> static no_member  has_supported_member(...);
             template<typename T> static no_member  has_do_apply_member(...);
 
             static auto constexpr yes           = sizeof(has_member);
-            //static auto constexpr has_supported = sizeof(has_supported_member<P>(nullptr));
             static auto constexpr has_do_apply  = sizeof(has_do_apply_member<P>(nullptr));
             static auto constexpr is_predicate  = std::is_base_of<i_operator_predicate, P>::value;
 
         public:
 
-            static auto constexpr value = is_predicate
-                or /*has_supported == yes and*/ has_do_apply == yes;
+            static auto constexpr value = is_predicate or has_do_apply == yes;
 
         };
 

@@ -16,7 +16,7 @@
 #pragma once
 
 
-#include <cvip/core/expression.hpp>
+#include "../expression.hpp"
 #include <utility>
 
 #if not defined(CVIP_CONFIG_LOADED)
