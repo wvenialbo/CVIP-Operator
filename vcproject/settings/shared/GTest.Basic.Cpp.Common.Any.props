@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="Build.Basic.Cpp.Common.Any.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>GTEST_LINKED_AS_SHARED_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gmock.lib;gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo "" &gt; $(OutDir)$(TargetName)$(TargetExt).is_google_test</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Target Name="CleanIsGoogleTest" AfterTargets="Clean">
+    <ItemGroup>
+      <FilesToDelete Include="$(OutDir)$(TargetName)$(TargetExt).is_google_test;$(OutDir)$(TargetName)$(TargetExt).gta.testdurations" />
+    </ItemGroup>
+    <Delete Files="@(FilesToDelete)" />
+  </Target>
+  <Target Name="CleanTestResultsDir" AfterTargets="Clean">
+    <RemoveDir Directories="$(SolutionDir)TestResults" />
+  </Target>
+</Project>
