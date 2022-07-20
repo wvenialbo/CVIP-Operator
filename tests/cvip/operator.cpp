@@ -40,7 +40,7 @@ struct basic_operator_fake : public cvip::core::base_operator< basic_operator_fa
         }
     }
 
-    basic_operator_fake* p_first;
+    basic_operator_fake* p_first = nullptr;
 };
 
 
@@ -80,7 +80,7 @@ struct testing_predicate /* : public cvip::core::i_operator_predicate */
         }
     }
 
-    testing_predicate* p_first;
+    testing_predicate* p_first = nullptr;
 };
 
 
