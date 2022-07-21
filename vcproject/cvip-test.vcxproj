@@ -48,7 +48,7 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="settings\Project.Directories.user.props" />
     <Import Project="settings\Build.Configuration.user.props" />
-    <Import Project="settings\GTest.Coverage.Cpp.Common.Any.props" />
+    <Import Project="settings\GTest.UnitTest.Cpp.Common.Any.props" />
   </ImportGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <Link>
