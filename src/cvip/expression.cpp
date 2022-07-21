@@ -13,7 +13,6 @@
 #include <cvip/expression.hpp>
 #include <cvip/internal/basic_imports.hpp>
 #include <initializer_list>
-#include <cassert>
 
 
 namespace cvip
@@ -25,7 +24,7 @@ namespace cvip
         operator_expression::operator_expression(i_operator const& lhs_op, i_operator const& rhs_op) :
             m_data{ construct_data(lhs_op, rhs_op) }
         {
-            assert(m_data.use_count() == 1);
+            // NOOP
         }
 
         matrix operator_expression::apply(matrix const& rhs_im)
