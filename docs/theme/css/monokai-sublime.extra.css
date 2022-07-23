@@ -1,0 +1,47 @@
+.rst-content pre code,
+.rst-content code,
+.rst-content tt,
+.hljs,
+code {
+  background: #23241f;
+  color: #f8f8f2;
+  border-radius: 8px;
+  border: none;
+}
+
+.rst-content li code,
+.rst-content p code,
+.rst-content tt,
+li > .hljs,
+p > .hljs,
+li code,
+p code,
+li > code.highlight,
+p > code.highlight {
+  border-radius: 4px;
+  border: none;
+  opacity: 0.75;
+}
+
+.rst-content li code.none,
+.rst-content li code.file,
+.rst-content p code.none,
+.rst-content p code.file {
+  background-color: inherit;
+  border: 1px solid #e1e4e5;
+}
+
+.rst-content li code.none,
+.rst-content p code.none {
+  color: #00a;
+}
+
+.rst-content li code.file,
+.rst-content p code.file {
+  color: #a00;
+}
+
+.rst-content .admonition code.none,
+.rst-content .admonition code.file {
+  background: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,57 @@
+site_name: 'CVIP-Operator'
+site_author: Waldemar Villamayor-Venialbo
+site_description: C++ library for enabling generic operator semantics to OpenCV matrices/images.
+
+copyright: The CVIP++ Project — Copyright 2019-2022, Waldemar Villamayor-Venialbo.
+
+repo_url: https://github.com/wvenialbo/CVIP-Operator
+repo_name: 'GitHub'
+
+nav:
+  - 'CONTENTS:':
+    - Intoducing CVIP++: 'index.md'
+    - CVIP-Operator Overview: 'overview.md'
+    - Requirements and testing: 'requirements.md'
+    - Installation: 'installation.md'
+    - Examples of use: 'examples.md'
+    - Releases & Change log: 'releases.md'
+    - Acknowledgements: 'acknowledgements.md'
+    - License & legal stuff: 'legal.md'
+    - '____': 'LICENSE.md'
+  - API documentation:
+    - Classes: 'apidoc.md'
+
+theme:
+  name: readthedocs
+  custom_dir: docs\theme
+  locale: en_GB
+  highlightjs: true
+  navigation_depth: 2
+
+extra:
+  version: 'Excerpt from The CVIP++ Project'
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      use_pygments: false
+  - footnotes
+  - pymdownx.highlight:
+      use_pygments: false
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist
+
+extra_css:
+#  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/monokai-sublime.min.css
+  - css/monokai-sublime.extra.css
+  - css/monokai-sublime.min.css
+#  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/a11y-dark.min.css
+#  - css/a11y-dark.min.css
+#  - css/a11y-dark.extra.css
+  - css/theme_overrides.css
+
+#extra_javascript:
+#  - js/highlight.js

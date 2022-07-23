@@ -1,0 +1,52 @@
+
+.footnote * {
+  font-size: small;
+}
+
+.rst-content .section ol ol li {
+  list-style: lower-roman;
+}
+
+.rtd-copyright {
+  font-size: small;
+  color: darkslateblue;
+}
+
+a.topics code {
+  font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-decoration: none;
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color,background-color,box-shadow,border-color;
+  display: inline-block;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 22px;
+  color: #0969da;
+  background-color: #ddf4ff;
+  border: 1px solid transparent;
+  margin: 0 .125em .333em 0;
+}
+
+a:hover.topics code {
+  outline-offset: -2px;
+  color: #ffffff;
+  background-color: #0969da;
+  outline: none;
+  box-shadow: none;
+}
+
+h2.about {
+  font-size: 120%;
+}
+
+h3.topics {
+  font-size: 100%;
+  margin-bottom: 0.5em;
+}
