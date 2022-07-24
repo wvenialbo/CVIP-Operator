@@ -31,11 +31,14 @@ struct basic_operator_fake : public cvip::core::base_operator< basic_operator_fa
 
     virtual void apply(matrix& dst, matrix& src, bool const first) override
     {
+        if (first)
+        {
+            assert(dst.empty() and not src.empty());
+        }
         p_first->apply(dst.total(), src.total(), first);
         cvip::swap(dst, src);
         if (first)
         {
-            ASSERT_EQ(src.total(), 0);
             src = cvip::matrix(3, 3, CV_8UC1);
         }
     }
@@ -71,11 +74,14 @@ struct testing_predicate /* : public cvip::core::i_operator_predicate */
 
     void do_apply(matrix& dst, matrix& src, bool const first)
     {
+        if (first)
+        {
+            assert(dst.empty() and not src.empty());
+        }
         p_first->do_apply2(dst.total(), src.total(), first);
         cvip::swap(dst, src);
         if (first)
         {
-            ASSERT_EQ(src.total(), 0);
             src = cvip::matrix(3, 3, CV_8UC1);
         }
     }
