@@ -14,14 +14,16 @@
 CVIP-Operator is a C++ library for enabling generic operator semantics when
 working with OpenCV matrices/images.
 
+Source code: <https://github.com/wvenialbo/CVIP-Operator>
+
 ### Topics {.topics}
 
-[**`cpp`**](https://github.com/topics/cpp){.topics}
-[**`opencv`**](https://github.com/topics/opencv){.topics}
-[**`computer-vision`**](https://github.com/topics/computer-vision){.topics}
-[**`image-processing`**](https://github.com/topics/image-processing){.topics}
+[**C++**](https://github.com/topics/cpp){.topics}
+[**OpenCV**](https://github.com/topics/opencv){.topics}
+[**Computer Vision**](https://github.com/topics/computer-vision){.topics}
+[**Image Processing**](https://github.com/topics/image-processing){.topics}
 
-## Contents {.hidden-toc}
+## Contents {.hidden-heading}
 
 - [Introduction](#introduction)
 - [Overview](overview.md)
@@ -37,28 +39,30 @@ working with OpenCV matrices/images.
 CVIP-Operator is part of the [The CVIP++ Project][cvip-project], an open-source
 library written in C++ under the terms of a [BSD-like License](legal.md) for use
 in computer vision or image processing projects. It is a compilation of software
-written by me mainly for academic or research purposes, or for entertainment. 😁
+I wrote mainly for academic or research purposes, or for entertainment. 😁
 
 The original source code dates from early 1990ʼs to mid 2010ʼs, now retargeted
-to Modern C++ and OpenCV, taking advantage of the amazing new features of the
-latest C++ language standards and the blasting performance of OpenCV matrix data
-handling; the original software was linked to an old matrix/image handling
-library written by me, but here I redeeming some features that I miss when
-writing programs with OpenCV.
+to Modern C++ and [OpenCV][opencv], taking advantage of the amazing new features
+of the latest C++ language standards and the blasting performance of OpenCV
+matrix data handling; the original software was linked to an old matrix/image
+handling library written by me, here I redeeming some features that currently I
+miss when writing programs with OpenCV.
 
 I am including (reimplementing) in CVIP++ some algorithms that OpenCV lacks,
-like thinning (skeletonization) algorithms, or some alternative algorithms to
-those existing in OpenCV; in such cases, I also map the OpenCV native
-implementation using the semantics of CVIP++.
+like thinning (skeletonization) algorithms, or extending those existing in
+OpenCV with alternative algorithms; I also map the OpenCV natively implemented
+algorithms using the semantics of CVIP++.
 
 When you work with vectors and array of vectors in the form of matrices, linear
 operators are matrices and operands are other vectors or matrices, and you
-operate on them with multiplication; or additions. Image operations arenʼt
-linear, strictly speaking, and images are not array of vectors, *stricto sensu*,
-but representing an image processing pipeline with operator notation is
-practical and convenient, and you feel comfortable with it when coming from a
+operate on them using matrix multiplication or additions. Image operations
+arenʼt performed by linear operators, strictly speaking, and images are not
+array of vectors, *stricto sensu*, but representing an image processing pipeline
+with matrix operator notation is practical and convenient, brings an uniform
+consistency to your code, and you feel comfortable with it when coming from a
 mathematical background.
 
 So, go ahead to the [CVIP-Operator Overview](overview.md) section.
 
 [cvip-project]: https://github.com/wvenialbo/CVIP "The CVIP++ Project"
+[opencv]: https://opencv.org/ "OpenCV.org"

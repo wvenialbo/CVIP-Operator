@@ -1,23 +1,45 @@
 # Examples of use
 
-For creating a matrix/image operator, you just create a class implementing the
-`:::cpp i_operator_predicate` interface defined in `:::cpp core/i_operator.hpp`,
-you even do not need to derive your class from it. In the `:::cpp do_apply`
-member function you implement your operation logic or, if it is a complex
-algorithm, use that member as the entry point to your algorithm.
+## Preliminaries
+
+For creating an image operator, you define a class that implements the `:::cpp
+i_operator_predicate` interface defined in `cvip/i_operator.hpp`{.file}, you
+donʼt even need to derive your class from it, just declare the override[^1] for
+the `:::cpp i_operator_predicate::do_apply()` member function and, eventually,
+instrument your operation logic inside it or, in case of a complex process, use
+`:::cpp do_apply()` as the entry point to your algorithm.
+
+[^1]: Actually, you do not override it since it is a pure virtual member
+    function.
 
 !!! hint "Note"
 
-    You do not need to implement the `:::cpp i_operator` nor derive a class
-    from `:::cpp base_operator<T>` or `:::cpp basic_operator<T>` template
-    classes, unless you want to extend the operator functionality.
+    In the operator predicate you created, you may encapsulate any existing
+    OpenCV method, as shown in the examples below, or implement your own
+    image processing algorithm.
 
-In the operator predicate you just created, you may encapsulate any existing
-OpenCV method, or implement your own operation algorithm.
+If your algorithm does require initialisation parameters, you will also define
+the constructors taking the arguments to initialise your predicate object and,
+if your operator needs the ability to be reconfigured later, it should provide a
+method overriding the `:::cpp i_operator_predicate::reset()` member function.
+
+It is not necessary to define an operator class implementing the `:::cpp
+i_operator` interface, defined in `cvip/i_operator.hpp`{.file}, unless you want
+to extend the basic functionalities already existing. The library provides the
+`:::cpp basic_operator<*>` class template defined in `cvip/operator.hpp`{.file},
+that takes a predicate type name `:::cpp T` to instance an operator template
+class `:::cpp basic_operator<T>` implementing the algorithm defined in `:::cpp
+T::do_apply()`.
+
+To extend the functionality of operator objects, you either implement `:::cpp
+i_operator` from scratch or derive your class or class template from `:::cpp
+basic_operator<*>` or its base, `:::cpp base_operator<*>`, also defined in
+`cvip/i_operator.hpp`{.file}. Refer to the API documentation for details on
+those interfaces and class templates.
 
 ## Creating an image transform operator
 
-To illustrate this, letʼs define an image color/intensity inverter operator.
+To illustrate this, letʼs define an image colour/intensity inverter operator.
 
 First, we define our predicate class:
 
@@ -80,7 +102,7 @@ destination or temporary buffer if it has the appropriate size.
 Most of the times, an operation needs to be configured through parameters.
 `:::cpp basic_operator<T>` supports forwarding of its variadic arguments. Just
 define your operator predicate classes with the required overloaded
-constructors. Although not an operator, *sensu stricto*, let define an operator
+constructors. Although not an operator, *sensu stricto*, let define a predicate
 to pad an image with pixels. This kind of operation is commonly needed before
 applying convolutional or morphological structuring operators to an image.
 
@@ -115,9 +137,12 @@ Again, we first define our predicate class:
 
     };
 
-The `:::cpp m_border` member array stores the padding size for the top, right,
-bottom, and left sides. The `m_value` member stores the pixel value to
-initialize the padding pixels.
+Note that I defined one constructor taking all the required parameters and two
+overloads of the `:::cpp padding_predicate::reset()` method, one for updating
+the number of pixels to expand each side of the image, and other to update the
+value to be assigned to the added pixels. The `:::cpp m_border` member array
+stores the padding size for the top, right, bottom, and left sides. The
+`m_value` member stores the pixel value to initialize the padding pixels.
 
     :::cpp
     padding_predicate::padding_predicate(int const t, int const r, int const b, int const l,
@@ -159,9 +184,6 @@ implementation provided by OpenCV.
 
         cv::copyMakeBorder(src, dst, m_border[T], m_border[B], m_border[L],
                            m_border[R], cv::BORDER_CONSTANT, m_value);
-
-        assert(dst.cols == src.cols + m_border[L] + m_border[R]);
-        assert(dst.rows == src.rows + m_border[T] + m_border[B]);
 
         src = matrix{ };
     }
@@ -222,17 +244,64 @@ equivalent traditional OpenCV code is less elegant:
 Moreover, the program flux is obscure, it is not that evident from reading the
 code what action is executing in each line.
 
+For updating the parameters of an operator for reusing, you invoke the `:::cpp
+operator()` method on the operator object, with the appropriate data type. The
+current implementation will forward those parameters to your predicateʼs `:::cpp
+reset()` member function accordingly:
+
+    ::cpp
+    // Update the padding amount on each side
+
+    P(5, 5, 5, 5);
+
+    // Update the padding pixels value
+
+    P(cv::Scalar::all(255));
+
+    // Reuse your operator
+
+    auto z = P * y;
+
+As we do above with the `:::cpp Inv` operator, for a once time use you can use
+an rvalue:
+
+    ::cpp
+    auto y = Pad{ 2, 2, 2, 2 } * x;
+
+I recommend not to abuse with such notation since it will obscure your code,
+reducing the clarity we are pursuing.
+
+The same if you are updating the parameters of an existing operator object, the
+grammar allows:
+
+    ::cpp
+    // Change the padding amount but preserves the new pixel values
+
+    auto y = P(5, 5, 5, 5) * x;
+
+    // Change tha new pixels value while preserving the padding amount
+
+    auto z = P(cv::Scalar::all(255)) * x;
+
+But beware that **these operations cannot be concatenated!** The following code
+apply `:::cpp P` to `:::cpp x` twice with different parameter values:
+
+    ::cpp
+    auto y = P(cv::Scalar::all(255)) * P(5, 5, 5, 5) * x;
+
+probably not what you want. In such a case you can concatenate the updating
+calls, like this
+
+    ::cpp
+    auto y = P(5, 5, 5, 5)(cv::Scalar::all(255)) * x;
+    // or indistinctly, unless the order is relevant, not in this case
+    auto z = P(cv::Scalar::all(255))(5, 5, 5, 5) * x;
+
+However, **I am completely against this usage**, it is just a side effect of the
+grammar design.
+
+### What have we gained? (wrap up)
+
 Weʼve gained simplicity while preserving efficiency, expressions and operators
 are lightweight opaque proxy objects and predicates are lightweight objects as
 well, the overhead added while constructing a pipeline expression is negligible.
-
-!!! note "Remark"
-
-    You may find that I aliased the OpenCV matrix class `:::cpp cv::Mat`
-    as `:::cpp cvip::matrix` in `cvip/internal/basic_types.hpp`{.file} and
-    imported `:::cpp cv::swap` into the `:::cpp ::cvip` namespace in
-    `cvip/internal/basic_imports.hpp`{.file}. Thatʼs because I use to map
-    this toolset to other matrix libraries. That is, the source code in this
-    library is OpenCV agnostic, you can map to any other matrix library just
-    replacing the above aliases. Even more, you can replace the matrix type alias
-    with any other type for which you need the semantics provided by this toolset.

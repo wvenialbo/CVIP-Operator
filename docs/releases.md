@@ -32,14 +32,11 @@ Adds `:::cpp i_operator`, `:::cpp i_operator_predicate`,
 `:::cpp operator_expression` and related `:::cpp operator*(_, _)`,
 all in the `cvip::core` namespace.
 
-### To dos
+### To dos {.hidden-heading}
 
-- [ ] Remove items not achieved from Build instructions before publish this
-  README.
-- [ ] Add example for the operator() overload for setting operation parameters.
-- [ ] Add CMake scripts.
+- [ ] Add CMake scripts or remove CMake references from Build instructions
+  before publishing this README.
 - [ ] Add API documentation.
-- [ ] Copy installation directives in its own INSTALL.md file in project root.
 
 [cvip-project]: https://github.com/wvenialbo/CVIP "The CVIP++ Project"
 [cvip-issues]: https://github.com/wvenialbo/CVIP/issues "The CVIP++ Project issues"

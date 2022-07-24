@@ -8,14 +8,15 @@ C++11 should be able to compile the library.
 ## Dependencies
 
 Programs linking against CVIP-Operator, including the testing application,
-requires an installation of the OpenCV library and binaries. The current code
-was tested with OpenCV 4.5.4 and 4.6.0.
+requires an installation of the [OpenCV][opencv] library and binaries. The
+current code was tested with OpenCV 4.5.4 and 4.6.0.
 
 ## Testing
 
-The source code was unit tested with Google Test/Mock using only C++11 features.
-Unit tests and test coverage measurement was carried out in Debug mode and
-Release mode with the `:::cpp _DEBUG` flag defined to preserve assertions.
+The source code was unit tested with the [Google Test][gtest] framework using
+only C++11 features. Unit tests and test coverage measurement was carried out in
+Debug mode and Release mode with the `:::cpp _DEBUG` flag defined to preserve
+assertions.
 
 ## Supported compilers
 
@@ -31,3 +32,6 @@ for C++11/14/17/20. *See [Acknowledgements](acknowledgements.md)*.
 
 In order to build the documentation, you require a working installation of
 [MkDocs](https://www.mkdocs.org/).
+
+[gtest]: https://github.com/google/googletest "GoogleTest - Google Testing and Mocking Framewor"
+[opencv]: https://opencv.org/ "OpenCV.org"

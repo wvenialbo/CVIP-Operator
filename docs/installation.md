@@ -54,15 +54,19 @@ There are two parts of code to test the library:
 
 ## Build the documentation
 
-Open a terminal shell or command console window, if you do not have a working
-copy of [MkDocs](https://www.mkdocs.org/), first install one using
-`:::bash pip install mkdocs`.
-Also  install the following extensions:
+To create a local copy of this documentation, open your platform terminal
+console an go to the directory where you cloned the project; if you do not have
+a working copy of [MkDocs](https://www.mkdocs.org/), first install one with the
+required extensions, then build the documentation:
 
     :::bash
-    pip install mkdocs-material
-    pip install pygments
+    # Go to your local repo
+    cd ~/repos/CVIP-Operator
+    # Install MkDocs
+    pip install mkdocs
     pip install pymdown-extensions
+    # Build the documentation
+    mkdocs build
 
-Go, `:::bash cd`, to the directory where you cloned the project and run
-`:::bash mkdocs build` to build a local instance of this documentation.
+A folder named `site`{.file} will be created containing the navigable HTML
+version of this documentation.

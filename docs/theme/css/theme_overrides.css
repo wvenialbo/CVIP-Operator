@@ -1,4 +1,9 @@
 
+.canvas {
+  color: var(--color-fg-default);
+  background-color: var(--color-canvas-default);
+}
+
 .footnote * {
   font-size: small;
 }
@@ -12,36 +17,6 @@
   color: darkslateblue;
 }
 
-a.topics code {
-  font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  word-wrap: break-word;
-  border-collapse: collapse;
-  text-decoration: none;
-  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
-  transition-property: color,background-color,box-shadow,border-color;
-  display: inline-block;
-  padding: 0 7px;
-  font-size: 12px;
-  font-weight: 500;
-  white-space: nowrap;
-  border-radius: 2em;
-  padding-right: 10px;
-  padding-left: 10px;
-  line-height: 22px;
-  color: #0969da;
-  background-color: #ddf4ff;
-  border: 1px solid transparent;
-  margin: 0 .125em .333em 0;
-}
-
-a:hover.topics code {
-  outline-offset: -2px;
-  color: #ffffff;
-  background-color: #0969da;
-  outline: none;
-  box-shadow: none;
-}
-
 h2.about {
   font-size: 120%;
 }
@@ -49,4 +24,200 @@ h2.about {
 h3.topics {
   font-size: 100%;
   margin-bottom: 0.5em;
+}
+
+a.label_dark_transparent,
+a.label_dim_transparent,
+a.label_light_transparent,
+a.label_black_transparent,
+a.label_blue,
+a.label_green,
+a.label_light_green,
+a.label_orange,
+a.label_red,
+a.label_yellow,
+a.tags,
+a.topics {
+  --color-accent-fg: #58a6ff;
+  --color-accent-emphasis: #1f6feb;
+  --color-accent-muted: rgba(56,139,253,0.4);
+  --color-accent-subtle: rgba(56,139,253,0.15);
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  --color-border-subtle: rgba(240,246,252,0.1);
+  --color-canvas-default: #0d1117;
+  --color-canvas-overlay: #161b22;
+  --color-canvas-inset: #010409;
+  --color-canvas-subtle: #161b22;
+  --color-fg-default: #c9d1d9;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+  --color-fg-on-emphasis: #ffffff;
+  --color-topic-tag-border: rgba(0,0,0,0);
+  --color-hover-background: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l)) * 1%));
+  --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+  --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+  --border-threshold: 0.96;
+  --lightness-threshold: 0.6;
+  --background-alpha: 0.18;
+  --border-alpha: 0.3;
+  --lighten-by: calc(((var(--lightness-threshold) - var(--perceived-lightness)) * 100) * var(--lightness-switch));
+  font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  word-break: break-word !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word !important;
+  box-sizing: border-box;
+  text-decoration: none;
+  vertical-align: middle !important;
+  display: inline-block;
+  padding: 1px 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-collapse: collapse;
+  border-radius: 2em;
+  color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 0.8%));
+  background: rgba(var(--label-r), var(--label-g), var(--label-b), var(--background-alpha));
+  border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%), var(--border-alpha));
+}
+
+a.label_blue {
+  --label-r: 112;
+  --label-g: 87;
+  --label-b: 255;
+  --label-h: 248;
+  --label-s: 100;
+  --label-l: 67;
+}
+
+a.label_green {
+  --label-r: 40;
+  --label-g: 180;
+  --label-b: 99;
+  --label-h: 145;
+  --label-s: 63;
+  --label-l: 43;
+}
+
+a.label_light_green {
+  --label-r: 36;
+  --label-g: 204;
+  --label-b: 128;
+  --label-h: 152;
+  --label-s: 70;
+  --label-l: 47;
+}
+
+a.label_orange {
+  --label-r: 237;
+  --label-g: 187;
+  --label-b: 153;
+  --label-h: 24;
+  --label-s: 70;
+  --label-l: 76;
+}
+
+a.label_red {
+  --label-r: 215;
+  --label-g: 58;
+  --label-b: 74;
+  --label-h: 353;
+  --label-s: 66;
+  --label-l: 53;
+}
+
+a.label_yellow {
+  --label-r: 254;
+  --label-g: 242;
+  --label-b: 192;
+  --label-h: 48;
+  --label-s: 96;
+  --label-l: 87;
+  color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) / 1.5) * 1%));
+}
+
+a.label_orange,
+a.label_yellow {
+  --color-hover-background: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) / 1.5) * 1%));
+}
+
+a.label_black_transparent {
+  border: 1px solid var(--color-border-default, transparent);
+  --color-hover-background: var(--color-border-default);
+}
+
+a.label_dark_transparent,
+a.label_dim_transparent,
+a.label_light_transparent,
+a.label_black_transparent {
+  color: var(--color-fg-muted);
+  border-color: var(--color-border-default);
+}
+
+a.label_dark_transparent,
+a.label_dim_transparent,
+a.label_light_transparent {
+  background-color: var(--color-canvas-default);
+}
+
+a.tags,
+a.topics {
+  border: 1px solid var(--color-topic-tag-border, transparent);
+  color: var(--color-accent-fg);
+  background-color: var(--color-accent-subtle);
+}
+
+a.topics {
+  --color-accent-fg: #0969da;
+  --color-accent-emphasis: #0969da;
+  --color-accent-muted: rgba(84,174,255,0.4);
+  --color-accent-subtle: #ddf4ff;
+  --color-border-default: #d0d7de;
+  --color-border-muted: hsla(210,18%,87%,1);
+  --color-border-subtle: rgba(27,31,36,0.15);
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: #f6f8fa;
+  --color-canvas-subtle: #f6f8fa;
+  --color-fg-default: #24292f;
+  --color-fg-muted: #57606a;
+  --color-fg-subtle: #6e7781;
+}
+
+a:hover.label_black_transparent,
+a:hover.label_blue,
+a:hover.label_green,
+a:hover.label_light_green,
+a:hover.label_orange,
+a:hover.label_red,
+a:hover.label_yellow,
+a:hover.tags,
+a:hover.topics {
+  color: var(--color-fg-on-emphasis);
+  background-color: var(--color-hover-background);
+}
+
+a:hover.tags,
+a:hover.topics {
+  background-color: var(--color-accent-emphasis);
+}
+
+a.label_dark_transparent {
+  --color-canvas-default: #0d1117;
+  --color-fg-muted: #8b949e;
+  --color-border-default: #30363d;
+}
+
+a.label_dim_transparent {
+  --color-canvas-default: #22272e;
+  --color-fg-muted: #768390;
+  --color-border-default: #444c56;
+}
+
+a.label_light_transparent {
+  --color-canvas-default: #ffffff;
+  --color-fg-muted: #57606a;
+  --color-border-default: #d0d7de;
 }
