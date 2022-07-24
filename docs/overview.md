@@ -64,7 +64,9 @@ previous examples, `:::cpp P2` is operating on the result of `:::cpp P1 * x`,
 although operator concatenation is evaluated from left to right. Operators are,
 in general, non-commutative. To achieve right-to-left evaluation, operators are
 gathered into an expression object before they are applied, in tandem, to the
-input matrix.
+input matrix. *See [Image operators
+rationale](api/index.md#image-operators-rationale) for a comprehensive
+description of operator expressions.*
 
 ## Motivation
 
