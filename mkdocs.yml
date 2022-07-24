@@ -19,7 +19,7 @@ nav:
     - License & legal stuff: 'legal.md'
     - '____': 'LICENSE.md'
   - API documentation:
-    - Classes: 'apidoc.md'
+    - Overview: 'api/index.md'
 
 theme:
   name: readthedocs
@@ -32,15 +32,20 @@ extra:
   version: 'Excerpt from The CVIP++ Project'
 
 markdown_extensions:
+  - meta
   - admonition
   - attr_list
   - codehilite:
       use_pygments: false
   - footnotes
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight:
       use_pygments: false
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: api/fragments
   - pymdownx.superfences
   - pymdownx.tasklist
 
