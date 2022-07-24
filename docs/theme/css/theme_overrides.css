@@ -221,3 +221,11 @@ a.label_light_transparent {
   --color-fg-muted: #57606a;
   --color-border-default: #d0d7de;
 }
+
+p .math {
+  font-size: 90%;
+}
+
+.MathJax_Display .math {
+  font-size: 90%;
+}

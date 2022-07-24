@@ -8,7 +8,7 @@ repo_url: https://github.com/wvenialbo/CVIP-Operator
 repo_name: 'GitHub'
 
 nav:
-  - 'CONTENTS:':
+  - 'Getting started':
     - Intoducing CVIP++: 'index.md'
     - CVIP-Operator Overview: 'overview.md'
     - Requirements and testing: 'requirements.md'
@@ -18,8 +18,8 @@ nav:
     - Acknowledgements: 'acknowledgements.md'
     - License & legal stuff: 'legal.md'
     - '____': 'LICENSE.md'
-  - API documentation:
-    - Overview: 'api/index.md'
+  - 'Quick reference':
+    - Summary: 'api/index.md'
 
 theme:
   name: readthedocs
@@ -32,12 +32,12 @@ extra:
   version: 'Excerpt from The CVIP++ Project'
 
 markdown_extensions:
-  - meta
   - admonition
   - attr_list
   - codehilite:
       use_pygments: false
   - footnotes
+  - meta
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
@@ -58,5 +58,8 @@ extra_css:
 #  - css/a11y-dark.extra.css
   - css/theme_overrides.css
 
-#extra_javascript:
+extra_javascript:
 #  - js/highlight.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML
+  - js/mathjaxhelper.js
+

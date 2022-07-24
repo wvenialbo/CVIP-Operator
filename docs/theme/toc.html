@@ -1,9 +1,14 @@
 {% set hidden_titles = ['Contents'] %}
+{% if '/api/' in page.abs_url %}
+    {%- set navigation_depth = config.theme.navigation_depth + 1 %}
+{% else %}
+    {%- set navigation_depth = config.theme.navigation_depth %}
+{% endif %}
 {%- for toc_item in toc_item.children %}
     {%- if toc_item.title not in hidden_titles %}
         <li class="toctree-l{{ navlevel}}"><a class="reference internal" href="{% if not nav_item == page %}{{ nav_item.url|url }}{% endif %}{{ toc_item.url }}">{{ toc_item.title }}</a>
         {%- set navlevel = navlevel + 1 %}
-        {%- if navlevel <= config.theme.navigation_depth and toc_item.children %}
+        {%- if navlevel <= navigation_depth and toc_item.children %}
             <ul>
                 {%- include 'toc.html' %}
             </ul>
